@@ -19,13 +19,3 @@ export const vazirmatn = localFont({
     },
   ],
 })
-export const diplomat = localFont({
-  src: [
-    {
-      path: '../../public/fonts/Far_Diplomat.ttf',
-      weight: '400',
-      style: 'normal',
-    },
-  ],
-  variable: '--font-dip'
-})

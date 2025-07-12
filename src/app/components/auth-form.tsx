@@ -52,11 +52,11 @@ export default function AuthForm() {
   }
 
   return (
-    <div className={`${vazirmatn.className} w-full max-w-md mx-auto bg-white rounded-lg shadow-lg border border-gray-200`}>
+    <div className={`${vazirmatn.className} w-full max-w-md mx-auto bg-card rounded-lg shadow-lg border border-gray-200`}>
       {/* Header */}
       <div className="text-center p-6 border-b border-gray-100">
         <div className="flex justify-center mb-3">
-          <svg className="h-8 w-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -65,13 +65,13 @@ export default function AuthForm() {
             />
           </svg>
         </div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">تایید شماره همراه</h2>
+        <h2 className="text-2xl font-bold text-primary mb-2">تایید شماره همراه</h2>
       </div>
 
       {/* Form Content */}
       <div className="p-6 space-y-4">
         <div className="space-y-2">
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="phone" className="block text-sm font-medium text-primary">
             شماره همراه
           </label>
           <input
@@ -80,10 +80,10 @@ export default function AuthForm() {
             placeholder="09123456789"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
-            className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors ${
+            className={`w-full mb-0 px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors ${
               showValidation
                 ? isValidIranNumber
-                  ? "border-green-500 focus:border-green-500 focus:ring-green-500"
+                  ? "border-primary focus:border-primary focus:ring-primary"
                   : "border-red-500 focus:border-red-500 focus:ring-red-500"
                 : "border-gray-300"
             }`}
@@ -120,7 +120,7 @@ export default function AuthForm() {
           )}
 
           {/* Format Examples */}
-          <div className="text-xs text-gray-500 mt-2 bg-gray-50 p-3 rounded-md">
+          <div className="text-xs text-gray-500 mt-2 bg-background p-3 rounded-md">
             <p className="font-medium mb-1">شماره همراه باید یکی از دو حالت زیر باشد</p>
             <ul className="space-y-1">
               <li>• +98 912 345 6789 (با کد کشور)</li>
@@ -135,8 +135,8 @@ export default function AuthForm() {
           disabled={!isValidIranNumber}
           className={`w-full py-2 px-4 rounded-md font-medium transition-all duration-200 ${
             isValidIranNumber
-              ? "bg-blue-600 hover:bg-blue-700 text-white shadow-md hover:shadow-lg"
-              : "bg-gray-300 text-gray-500 cursor-not-allowed"
+              ? "bg-primary text-secondary shadow-md hover:shadow-lg"
+              : "bg-secondary text-gray-500 cursor-not-allowed"
           }`}
         >
           {isSaved ? "با موفقیت ثبت شد" : "ذخیره"}

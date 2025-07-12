@@ -41,12 +41,12 @@ export default function DashboardPage() {
         const currentTime = new Date().getTime()
         const hoursDiff = (currentTime - sessionTime) / (1000 * 60 * 60)
 
-        // if (hoursDiff > 24) {
-        //   // Session expired, redirect to auth
-        //   localStorage.removeItem("userAuth")
-        //   router.push("/auth")
-        //   return
-        // }
+        if (hoursDiff > 24) {
+          // Session expired, redirect to auth
+          localStorage.removeItem("userAuth")
+          router.push("/auth")
+          return
+        }
 
         // Valid data found, set user data
         setUserData(parsedData)
@@ -68,7 +68,7 @@ export default function DashboardPage() {
 
   if (isLoading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-gray-50">
+      <div className="flex min-h-screen items-center justify-center bg-background">
         <div className="text-center">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
           <p className="mt-2 text-gray-600">Loading dashboard...</p>
@@ -78,13 +78,13 @@ export default function DashboardPage() {
   }
 
   return (
-    <div  dir={'rtl'} className={`${vazirmatn.className} min-h-screen bg-gray-50`}>
+    <div  dir={'rtl'} className={`${vazirmatn.className} min-h-screen bg-background`}>
       {/* Header */}
-      <header className="bg-white shadow-sm border-b border-gray-200">
+      <header className="bg-background shadow-sm border-b border-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-row-reverse justify-between items-center h-16">
+          <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <h1 className="text-xl font-semibold text-gray-900">داشبورد</h1>
+              <h1 className="text-xl font-semibold text-primary">داشبورد</h1>
             </div>
             <div className="flex items-center space-x-4">
               <button
@@ -101,17 +101,17 @@ export default function DashboardPage() {
       {/* Main Content */}
       <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div className="px-4 py-6 sm:px-0">
-          <div className="bg-white rounded-lg shadow p-6 justify-center items-center flex flex-col">
+          <div className="bg-card rounded-lg shadow p-6 justify-center items-center flex flex-col">
             {/* Conditional Paragraph - Main Requirement */}
             {userData && (
-              <p className="text-lg text-gray-800 mb-6">
-              🎉 .به داشبورد خوش آمدید
+              <p className="text-lg text-secondary mb-6">
+              به داشبورد خوش آمدید. 🎉
               </p>
             )}
 
             {/* Dashboard Content */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-6">
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 flex flex-col justify-center items-center">
+              <div className="bg-blue-50 border border-blue-200 dark:bg-blue-300 rounded-lg p-4 flex flex-col justify-center items-center">
                 <h3 className="text-lg font-medium text-blue-900 mb-2">اطلاعات کاربر</h3>
                 <div className="space-y-2 text-sm text-blue-800 flex flex-col justify-center items-center">
                   <p>
@@ -122,17 +122,16 @@ export default function DashboardPage() {
                   </p>
                 </div>
               </div>
-
               <div
-                className="bg-green-50 border border-green-200 rounded-lg p-4 flex flex-col justify-center items-center">
-                <h3 className="text-lg font-medium text-green-900 mb-2">وضعیت سشن</h3>
-                <div className="space-y-2 text-sm text-green-800 flex flex-col justify-center items-center">
+                className="bg-green-50 dark:bg-green-300 border border-green-200 rounded-lg p-4 flex flex-col justify-center items-center">
+                <h3 className="text-lg font-medium text-green-900 dark:text-green-950 mb-2">وضعیت سشن</h3>
+                <div className="space-y-2 text-sm text-green-800 dark:text-green-900 flex flex-col justify-center items-center">
                   <p>
                     <strong>وضعیت:</strong> فعال
                   </p>
-                  <p className={'flex gap-1'}>
+                  <span className={'flex gap-1'}>
                     <strong>زمان ورود:</strong> <p>{new Date(userData?.timestamp || "").toLocaleString()}</p>
-                  </p>
+                  </span>
                 </div>
               </div>
             </div>

@@ -9,7 +9,7 @@ export default async function Home() {
     <div className={`${vazirmatn.className} font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20`}>
       <main className="flex flex-col gap-[32px] bg-secondary/5 backdrop-blur-xl row-start-2 items-center p-5 border-2 border-black rounded-xl">
         <Image
-          className="light:invert"
+          className="dark:invert"
           src="/next.svg"
           alt="Next.js logo"
           width={180}
@@ -30,7 +30,7 @@ export default async function Home() {
           >
             <p className={'text-background'}>ورود</p>
             <Image
-              className={"light:invert"}
+              className={"dark:invert"}
               src="/vercel.svg"
               alt="Vercel logomark"
               width={20}
